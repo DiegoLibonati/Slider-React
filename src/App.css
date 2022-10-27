@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap");
+
+* {
+  font-family: Rajdhani, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.main_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  height: 100vh;
+  width: 100%;
+}
+
+.title_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20%;
+}
+
+.title_container_center h2 {
+  font-size: 5rem;
+}
+
+.persons_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  width: 90%;
+  height: 80%;
+  position: relative;
+  overflow: hidden;
+}
+
+.person_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-flow: column wrap;
+  position: absolute;
+  width: 25rem;
+  height: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
+}
+
+.person_container img {
+  border-radius: 50%;
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+
+.person_container h3 {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.person_container h4 {
+  font-size: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.person_container p {
+  font-size: 1.2rem;
+}
+
+.persons_container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #09f;
+  position: relative;
+  z-index: 500;
+}
+
+#btn {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.person_container.activeSlide {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: transform 1s, opacity 1s;
+}
+
+.person_container.nextSlide {
+  transform: translateX(100%);
+}
+
+.person_container.lastSlide {
+  transform: translateX(-100%);
+}
+
+@media only screen and (min-width: 540px) {
+  .person_container {
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .persons_container {
+    width: 70rem;
+  }
+
+  .person_container h3 {
+    font-size: 2.5rem;
+  }
+
+  .person_container h4 {
+    font-size: 2rem;
+  }
+
+  .person_container p {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .persons_container {
+    width: 80rem;
+  }
+
+  .person_container {
+    width: 60rem;
+    justify-content: space-between;
+  }
+
+  .person_container h3 {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .person_container h4 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+
+  .person_container p {
+    font-size: 2rem;
+    margin: 0;
+  }
+}
