@@ -114,3 +114,7 @@ useEffect(() => {
 `https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Slider%20app%20page`
 
 ## Video
+
+https://user-images.githubusercontent.com/99032604/199142956-0476af19-ec83-4a43-8621-aa69df8e65cf.mp4
+
+
