@@ -11,9 +11,32 @@
 
 I made a web application that simulates or tries to reproduce a section of Reviews in the form of Slider where each review will show a photo, a name, a role and a description. It will also have an automatic slide in case the user does not use the buttons, and a manual slide in case the user wants to use the next or prev buttons.
 
-## Feel free to edit my code
+## Technologies used
 
-From helpers/data.js we get all the reviews
+1. React JS
+2. CSS3
+
+## Galery
+
+![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-0.jpg)
+
+![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-1.jpg)
+
+![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-2.jpg)
+
+![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-3.jpg)
+
+## Portfolio Link
+
+`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Slider%20app%20page`
+
+## Video
+
+https://user-images.githubusercontent.com/99032604/199142956-0476af19-ec83-4a43-8621-aa69df8e65cf.mp4
+
+## Documentation
+
+In the `helpers/data.js` file we are going to get all the information about the persons:
 
 ```
 export const people = [
@@ -56,65 +79,35 @@ export const people = [
 ];
 ```
 
-Automatic slide with useEffect using a index state.
+In the `Main.jsx` component we are going to have a state called `person` that will contain all the information of the persons. In the `index` state we will store the position of the `person` array to show the index of that array. In `handlePrevBtn()` it will be executed when clicked and will subtract 1 to that index, in `handleNextBtn()` we will add 1 to that index. Then we have a useEffect that will check every time the `index and person` changes to see if the index we are trying to access exists. Finally there is another useEffect that works as an Automatic Slider, every 3000 seconds a value will be added to the index every time that index changes it will enter this useEffect:
 
 ```
-useEffect(() => {
-const interval = setInterval(() => {
-    setIndex(index + 1);
-}, 3000);
+const [person] = useState(people);
+const [index, setIndex] = useState(0);
 
-return () => clearInterval(interval);
-}, [index]);
-```
-
-Manual slide with functions using a index state.
-
-```
 const handlePrevBtn = () => {
-    setIndex(index - 1);
+  setIndex(index - 1);
 };
 
 const handleNextBtn = () => {
-    setIndex(index + 1);
+  setIndex(index + 1);
 };
-```
 
-And checking with other useEffect checking that the index is always correct so that the application does not break and does not use an index that does not exist.
-
-```
 useEffect(() => {
-    if (index < 0) {
-        setIndex(person.length - 1);
-    }
+  if (index < 0) {
+    setIndex(person.length - 1);
+  }
 
-    if (index > person.length - 1) {
-        setIndex(0);
-    }
+  if (index > person.length - 1) {
+    setIndex(0);
+  }
 }, [index, person]);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setIndex(index + 1);
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, [index]);
 ```
-
-## Technologies used
-
-1. React JS
-2. CSS3
-
-## Galery
-
-![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-0.jpg)
-
-![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-1.jpg)
-
-![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-2.jpg)
-
-![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-3.jpg)
-
-## Portfolio Link
-
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Slider%20app%20page`
-
-## Video
-
-https://user-images.githubusercontent.com/99032604/199142956-0476af19-ec83-4a43-8621-aa69df8e65cf.mp4
-
-
