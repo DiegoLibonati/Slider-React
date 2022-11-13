@@ -28,7 +28,7 @@ I made a web application that simulates or tries to reproduce a section of Revie
 
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Slider%20app%20page`
+`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Slider%20App%20Page`
 
 ## Video
 
