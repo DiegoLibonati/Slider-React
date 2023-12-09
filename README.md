@@ -16,19 +16,9 @@ I made a web application that simulates or tries to reproduce a section of Revie
 1. React JS
 2. CSS3
 
-## Galery
-
-![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-0.jpg)
-
-![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-1.jpg)
-
-![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-2.jpg)
-
-![Slider-App-Page](https://raw.githubusercontent.com/DiegoLibonati/DiegoLibonatiWeb/main/data/projects/React/Imagenes/sliderreact-3.jpg)
-
 ## Portfolio Link
 
-`https://diegolibonati.github.io/DiegoLibonatiWeb/#/projects?q=Slider%20App%20Page`
+[`https://www.diegolibonati.com.ar/#/project/61`](https://www.diegolibonati.com.ar/#/project/61)
 
 ## Video
 
