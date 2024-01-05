@@ -1,4 +1,6 @@
-export const people = [
+import { Person } from "../entities/entities";
+
+export const people: Person[] = [
   {
     id: 1,
     image:

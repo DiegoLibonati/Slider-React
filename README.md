@@ -14,7 +14,8 @@ I made a web application that simulates or tries to reproduce a section of Revie
 ## Technologies used
 
 1. React JS
-2. CSS3
+2. Typescript
+3. CSS3
 
 ## Portfolio Link
 
@@ -26,10 +27,12 @@ https://user-images.githubusercontent.com/99032604/199142956-0476af19-ec83-4a43-
 
 ## Documentation
 
-In the `helpers/data.js` file we are going to get all the information about the persons:
+In the `helpers/data.ts` file we are going to get all the information about the persons:
 
 ```
-export const people = [
+import { Person } from "../entities/entities";
+
+export const people: Person[] = [
   {
     id: 1,
     image:
@@ -69,17 +72,17 @@ export const people = [
 ];
 ```
 
-In the `Main.jsx` component we are going to have a state called `person` that will contain all the information of the persons. In the `index` state we will store the position of the `person` array to show the index of that array. In `handlePrevBtn()` it will be executed when clicked and will subtract 1 to that index, in `handleNextBtn()` we will add 1 to that index. Then we have a useEffect that will check every time the `index and person` changes to see if the index we are trying to access exists. Finally there is another useEffect that works as an Automatic Slider, every 3000 seconds a value will be added to the index every time that index changes it will enter this useEffect:
+In the `Main.tsx` component we are going to have a state called `person` that will contain all the information of the persons. In the `index` state we will store the position of the `person` array to show the index of that array. In `handlePrevBtn()` it will be executed when clicked and will subtract 1 to that index, in `handleNextBtn()` we will add 1 to that index. Then we have a useEffect that will check every time the `index and person` changes to see if the index we are trying to access exists. Finally there is another useEffect that works as an Automatic Slider, every 3000 seconds a value will be added to the index every time that index changes it will enter this useEffect:
 
 ```
-const [person] = useState(people);
-const [index, setIndex] = useState(0);
+const [person] = useState<Person[]>(people);
+const [index, setIndex] = useState<number>(0);
 
-const handlePrevBtn = () => {
+const handlePrevBtn: React.MouseEventHandler<HTMLButtonElement> = () => {
   setIndex(index - 1);
 };
 
-const handleNextBtn = () => {
+const handleNextBtn: React.MouseEventHandler<HTMLButtonElement> = () => {
   setIndex(index + 1);
 };
 
