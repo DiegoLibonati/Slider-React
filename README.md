@@ -1,4 +1,4 @@
-# Slider-App-Page
+# Slider React
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ I made a web application that simulates or tries to reproduce a section of Revie
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/61`](https://www.diegolibonati.com.ar/#/project/61)
+[`https://www.diegolibonati.com.ar/#/project/Slider-React`](https://www.diegolibonati.com.ar/#/project/Slider-React)
 
 ## Video
 
