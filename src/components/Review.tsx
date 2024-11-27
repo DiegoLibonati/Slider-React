@@ -1,4 +1,10 @@
-import { ReviewProps } from "../entities/entities";
+interface ReviewProps {
+  image: string;
+  name: string;
+  title: string;
+  quote: string;
+  className?: string;
+}
 
 export const Review = ({
   image,
@@ -8,7 +14,7 @@ export const Review = ({
   className,
 }: ReviewProps): JSX.Element => {
   return (
-    <article className={className}>
+    <article className={`person_container ${className}`}>
       <img src={image} alt={name}></img>
 
       <h3>{name}</h3>

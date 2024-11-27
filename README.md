@@ -4,8 +4,8 @@
 
 1. Clone the repository
 2. Join to the correct path of the clone
-3. Install node_modules with npm install
-4. Use npm start to run the app page
+3. Execute: `yarn install` or `npm install`
+4. Execute: `yarn start` or `npm start` and enjoy!
 
 ## Description
 
@@ -17,6 +17,36 @@ I made a web application that simulates or tries to reproduce a section of Revie
 2. Typescript
 3. CSS3
 
+## Libraries used
+
+#### Dependencies
+
+```
+"@types/jest": "^29.5.13"
+"@types/node": "^20.10.6"
+"@types/react": "^18.2.46"
+"@types/react-dom": "^18.2.18"
+"react": "^18.2.0"
+"react-dom": "^18.2.0"
+"react-icons": "^4.4.0"
+"react-scripts": "5.0.1"
+"web-vitals": "^2.1.4"
+```
+
+#### devDependencies
+
+```
+"@testing-library/dom": "^10.4.0"
+"@testing-library/jest-dom": "^6.6.2"
+"@testing-library/react": "^16.0.1"
+"@testing-library/user-event": "^14.5.2"
+"typescript": "^5.3.3"
+"jest": "^29.7.0"
+"jest-environment-jsdom": "^29.7.0"
+"jest-fixed-jsdom": "^0.0.9"
+"ts-jest": "^29.2.5"
+```
+
 ## Portfolio Link
 
 [`https://www.diegolibonati.com.ar/#/project/Slider-React`](https://www.diegolibonati.com.ar/#/project/Slider-React)
@@ -25,82 +55,7 @@ I made a web application that simulates or tries to reproduce a section of Revie
 
 https://user-images.githubusercontent.com/99032604/199142956-0476af19-ec83-4a43-8621-aa69df8e65cf.mp4
 
-## Documentation
+## Testing
 
-In the `helpers/data.ts` file we are going to get all the information about the persons:
-
-```
-import { Person } from "../entities/entities";
-
-export const people: Person[] = [
-  {
-    id: 1,
-    image:
-      "https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-2_ipcjws.jpg",
-    name: "maria ferguson",
-    title: "office manager",
-    quote:
-      "Fingerstache umami squid, kinfolk subway tile selvage tumblr man braid viral kombucha gentrify fanny pack raclette pok pok mustache.",
-  },
-  {
-    id: 2,
-    image:
-      "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883417/person-3_ipa0mj.jpg",
-    name: "john doe",
-    title: "regular guy",
-    quote:
-      "Gastropub sustainable tousled prism occupy. Viral XOXO roof party brunch actually, chambray listicle microdosing put a bird on it paleo subway tile squid umami.",
-  },
-  {
-    id: 3,
-    image:
-      "https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959121/person-1_aufeoq.jpg",
-    name: "peter smith",
-    title: "product designer",
-    quote:
-      "Drinking vinegar polaroid street art echo park, actually semiotics next level butcher master cleanse hammock flexitarian ethical paleo.",
-  },
-  {
-    id: 4,
-    image:
-      "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg",
-    name: "susan andersen",
-    title: "the boss",
-    quote:
-      "Marfa af yr 3 wolf moon kogi, readymade distillery asymmetrical seitan kale chips fingerstache cloud bread mustache twee messenger bag. ",
-  },
-];
-```
-
-In the `Main.tsx` component we are going to have a state called `person` that will contain all the information of the persons. In the `index` state we will store the position of the `person` array to show the index of that array. In `handlePrevBtn()` it will be executed when clicked and will subtract 1 to that index, in `handleNextBtn()` we will add 1 to that index. Then we have a useEffect that will check every time the `index and person` changes to see if the index we are trying to access exists. Finally there is another useEffect that works as an Automatic Slider, every 3000 seconds a value will be added to the index every time that index changes it will enter this useEffect:
-
-```
-const [person] = useState<Person[]>(people);
-const [index, setIndex] = useState<number>(0);
-
-const handlePrevBtn: React.MouseEventHandler<HTMLButtonElement> = () => {
-  setIndex(index - 1);
-};
-
-const handleNextBtn: React.MouseEventHandler<HTMLButtonElement> = () => {
-  setIndex(index + 1);
-};
-
-useEffect(() => {
-  if (index < 0) {
-    setIndex(person.length - 1);
-  }
-
-  if (index > person.length - 1) {
-    setIndex(0);
-  }
-}, [index, person]);
-
-useEffect(() => {
-  const interval = setInterval(() => {
-    setIndex(index + 1);
-  }, 3000);
-
-  return () => clearInterval(interval);
-}, [index]);
-```
+1. Join to the correct path of the clone
+2. Execute: `yarn test` or `npm test`

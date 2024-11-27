@@ -1,9 +1,12 @@
-import { people } from "../helpers/data.ts";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { Review } from "./Review.tsx";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+
 import { Person } from "../entities/entities";
+
+import { Review } from "./Review.tsx";
+
+import { people } from "../constants/data.ts";
+
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 export const Main = (): JSX.Element => {
   const [person] = useState<Person[]>(people);
@@ -44,28 +47,37 @@ export const Main = (): JSX.Element => {
       </section>
 
       <section className="persons_container">
-        <button onClick={(e) => handlePrevBtn(e)}>
+        <button onClick={(e) => handlePrevBtn(e)} aria-label="prev review">
           <BsChevronLeft id="btn"></BsChevronLeft>
         </button>
 
-        {person.map((one, oneIndex) => {
-          let position = "person_container nextSlide";
+        {person.map((p, pIndex) => {
+          let position = "nextSlide";
 
-          if (oneIndex === index) {
-            position = "person_container activeSlide";
+          if (pIndex === index) {
+            position = "activeSlide";
           }
 
           if (
-            oneIndex === index - 1 ||
-            (index === 0 && oneIndex === person.length - 1)
+            pIndex === index - 1 ||
+            (index === 0 && pIndex === person.length - 1)
           ) {
-            position = "person_container lastSlide";
+            position = "lastSlide";
           }
 
-          return <Review key={one.id} {...one} className={position}></Review>;
+          return (
+            <Review
+              key={p.id}
+              className={position}
+              image={p.image}
+              name={p.name}
+              quote={p.quote}
+              title={p.title}
+            ></Review>
+          );
         })}
 
-        <button onClick={(e) => handleNextBtn(e)}>
+        <button onClick={(e) => handleNextBtn(e)} aria-label="next review">
           <BsChevronRight id="btn"></BsChevronRight>
         </button>
       </section>
