@@ -1,9 +1,11 @@
 import { screen, render, within } from "@testing-library/react";
 import user from "@testing-library/user-event";
 
-import { Main } from "./Main";
-import { PEOPLE_MOCK } from "../tests/constants/constants";
 import { act } from "react";
+
+import { Main } from "./Main";
+
+import { PEOPLE_MOCK } from "../tests/constants/constants";
 
 jest.mock("../constants/data.ts", () => ({
   get people() {
