@@ -14,7 +14,7 @@ export const Review = ({
   className,
 }: ReviewProps): JSX.Element => {
   return (
-    <article className={`person_container ${className}`}>
+    <article className={`person ${className}`}>
       <img src={image} alt={name}></img>
 
       <h3>{name}</h3>

@@ -1,6 +1,6 @@
-import { Person } from "../../entities/entities";
+import { Person } from "../entities/entities";
 
-export const PEOPLE_MOCK: Person[] = [
+export const mockPeople: Person[] = [
   {
     id: 1,
     image:

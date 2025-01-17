@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 import { Person } from "../entities/entities";
 
 import { Review } from "./Review.tsx";
 
 import { people } from "../constants/data.ts";
-
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 export const Main = (): JSX.Element => {
   const [person] = useState<Person[]>(people);
@@ -39,14 +38,14 @@ export const Main = (): JSX.Element => {
   }, [index]);
 
   return (
-    <main className="main_container">
-      <section className="title_container">
-        <article className="title_container_center">
+    <main className="main">
+      <section className="header">
+        <article className="header__title">
           <h2>Reviews</h2>
         </article>
       </section>
 
-      <section className="persons_container">
+      <section className="persons">
         <button onClick={(e) => handlePrevBtn(e)} aria-label="prev review">
           <BsChevronLeft id="btn"></BsChevronLeft>
         </button>

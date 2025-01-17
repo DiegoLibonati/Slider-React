@@ -38,21 +38,25 @@ const renderComponent = (): RenderComponent => {
   };
 };
 
-test("It must render the component with the entered props.", () => {
-  const { props } = renderComponent();
+describe("Review.tsx", () => {
+  describe("General Tests.", () => {
+    test("It must render the component with the entered props.", () => {
+      const { props } = renderComponent();
 
-  const article = screen.getByRole("article");
-  const img = screen.getByRole("img");
-  const headingName = screen.getByRole("heading", { name: props.name });
-  const headingTitle = screen.getByRole("heading", { name: props.title });
-  const quote = screen.getByText(props.quote);
+      const article = screen.getByRole("article");
+      const img = screen.getByRole("img");
+      const headingName = screen.getByRole("heading", { name: props.name });
+      const headingTitle = screen.getByRole("heading", { name: props.title });
+      const quote = screen.getByText(props.quote);
 
-  expect(article).toBeInTheDocument();
-  expect(article).toHaveClass(`person_container ${props.className}`);
-  expect(img).toBeInTheDocument();
-  expect(img).toHaveAttribute("src", props.image);
-  expect(img).toHaveAttribute("alt", props.name);
-  expect(headingName).toBeInTheDocument();
-  expect(headingTitle).toBeInTheDocument();
-  expect(quote).toBeInTheDocument();
+      expect(article).toBeInTheDocument();
+      expect(article).toHaveClass(`person ${props.className}`);
+      expect(img).toBeInTheDocument();
+      expect(img).toHaveAttribute("src", props.image);
+      expect(img).toHaveAttribute("alt", props.name);
+      expect(headingName).toBeInTheDocument();
+      expect(headingTitle).toBeInTheDocument();
+      expect(quote).toBeInTheDocument();
+    });
+  });
 });
