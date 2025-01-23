@@ -1,3 +1,5 @@
+import "./Review.css";
+
 interface ReviewProps {
   image: string;
   name: string;
@@ -14,12 +16,12 @@ export const Review = ({
   className,
 }: ReviewProps): JSX.Element => {
   return (
-    <article className={`person ${className}`}>
-      <img src={image} alt={name}></img>
+    <article className={`review ${className}`}>
+      <img src={image} alt={name} className="review__img"></img>
 
-      <h3>{name}</h3>
-      <h4>{title}</h4>
-      <p>{quote}</p>
+      <h3 className="review__name">{name}</h3>
+      <h4 className="review__title">{title}</h4>
+      <p className="review__quote">{quote}</p>
     </article>
   );
 };

@@ -38,30 +38,37 @@ export const Main = (): JSX.Element => {
   }, [index]);
 
   return (
-    <main className="main">
-      <section className="header">
-        <article className="header__title">
-          <h2>Reviews</h2>
+    <main className="main-app">
+      <section className="header-app">
+        <article className="header-app__content">
+          <h2 className="header-app__content-title">Reviews</h2>
         </article>
       </section>
 
-      <section className="persons">
-        <button onClick={(e) => handlePrevBtn(e)} aria-label="prev review">
-          <BsChevronLeft id="btn"></BsChevronLeft>
+      <section className="reviews">
+        <button
+          onClick={(e) => handlePrevBtn(e)}
+          aria-label="prev review"
+          className="reviews__btn-prev"
+        >
+          <BsChevronLeft
+            id="btn"
+            className="reviews__btn-prev-icon"
+          ></BsChevronLeft>
         </button>
 
         {person.map((p, pIndex) => {
-          let position = "nextSlide";
+          let position = "review--next-slide";
 
           if (pIndex === index) {
-            position = "activeSlide";
+            position = "review--active-slide";
           }
 
           if (
             pIndex === index - 1 ||
             (index === 0 && pIndex === person.length - 1)
           ) {
-            position = "lastSlide";
+            position = "review--last-slide";
           }
 
           return (
@@ -76,8 +83,15 @@ export const Main = (): JSX.Element => {
           );
         })}
 
-        <button onClick={(e) => handleNextBtn(e)} aria-label="next review">
-          <BsChevronRight id="btn"></BsChevronRight>
+        <button
+          onClick={(e) => handleNextBtn(e)}
+          aria-label="next review"
+          className="reviews__btn-next"
+        >
+          <BsChevronRight
+            id="btn"
+            className="reviews__btn-next-icon"
+          ></BsChevronRight>
         </button>
       </section>
     </main>

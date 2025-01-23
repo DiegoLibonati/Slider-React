@@ -42,11 +42,11 @@ describe("Main.tsx", () => {
 
       const articles = screen.getAllByRole("article");
       const reviewContainer = articles.find((article) =>
-        article.classList.contains("person")
+        article.classList.contains("review")
       );
 
       expect(reviewContainer).toBeInTheDocument();
-      expect(reviewContainer).toHaveClass(`person activeSlide`);
+      expect(reviewContainer).toHaveClass(`review review--active-slide`);
 
       const imgReview = within(reviewContainer!).getByRole("img");
       const nameReview = within(reviewContainer!).getByRole("heading", {
@@ -76,7 +76,7 @@ describe("Main.tsx", () => {
 
       const articles = screen.getAllByRole("article");
       const reviewContainers = articles.filter((article) =>
-        article.classList.contains("person")
+        article.classList.contains("review")
       );
 
       expect(reviewContainers).toHaveLength(mockPeople.length);
@@ -85,18 +85,18 @@ describe("Main.tsx", () => {
       const reviewContainerNext = reviewContainers[1];
 
       expect(reviewContainerCurrent).toBeInTheDocument();
-      expect(reviewContainerCurrent).toHaveClass(`person activeSlide`);
+      expect(reviewContainerCurrent).toHaveClass(`review review--active-slide`);
 
       expect(reviewContainerNext).toBeInTheDocument();
-      expect(reviewContainerNext).toHaveClass(`person nextSlide`);
+      expect(reviewContainerNext).toHaveClass(`review review--next-slide`);
 
       await user.click(buttonRight);
 
       expect(reviewContainerCurrent).toBeInTheDocument();
-      expect(reviewContainerCurrent).toHaveClass(`person lastSlide`);
+      expect(reviewContainerCurrent).toHaveClass(`review review--last-slide`);
 
       expect(reviewContainerNext).toBeInTheDocument();
-      expect(reviewContainerNext).toHaveClass(`person activeSlide`);
+      expect(reviewContainerNext).toHaveClass(`review review--active-slide`);
     });
 
     test("It should render the previous review when the Left button is clicked.", async () => {
@@ -108,7 +108,7 @@ describe("Main.tsx", () => {
 
       const articles = screen.getAllByRole("article");
       const reviewContainers = articles.filter((article) =>
-        article.classList.contains("person")
+        article.classList.contains("review")
       );
 
       expect(reviewContainers).toHaveLength(mockPeople.length);
@@ -117,18 +117,18 @@ describe("Main.tsx", () => {
       const reviewContainerPrev = reviewContainers[reviewContainers.length - 1];
 
       expect(reviewContainerCurrent).toBeInTheDocument();
-      expect(reviewContainerCurrent).toHaveClass(`person activeSlide`);
+      expect(reviewContainerCurrent).toHaveClass(`review review--active-slide`);
 
       expect(reviewContainerPrev).toBeInTheDocument();
-      expect(reviewContainerPrev).toHaveClass(`person lastSlide`);
+      expect(reviewContainerPrev).toHaveClass(`review review--last-slide`);
 
       await user.click(buttonLeft);
 
       expect(reviewContainerCurrent).toBeInTheDocument();
-      expect(reviewContainerCurrent).toHaveClass(`person nextSlide`);
+      expect(reviewContainerCurrent).toHaveClass(`review review--next-slide`);
 
       expect(reviewContainerPrev).toBeInTheDocument();
-      expect(reviewContainerPrev).toHaveClass(`person activeSlide`);
+      expect(reviewContainerPrev).toHaveClass(`review review--active-slide`);
     });
 
     test("It should render the next review after 3 seconds.", async () => {
@@ -138,7 +138,7 @@ describe("Main.tsx", () => {
 
       const articles = screen.getAllByRole("article");
       const reviewContainers = articles.filter((article) =>
-        article.classList.contains("person")
+        article.classList.contains("review")
       );
 
       expect(reviewContainers).toHaveLength(mockPeople.length);
@@ -147,20 +147,20 @@ describe("Main.tsx", () => {
       const reviewContainerNext = reviewContainers[1];
 
       expect(reviewContainerCurrent).toBeInTheDocument();
-      expect(reviewContainerCurrent).toHaveClass(`person activeSlide`);
+      expect(reviewContainerCurrent).toHaveClass(`review review--active-slide`);
 
       expect(reviewContainerNext).toBeInTheDocument();
-      expect(reviewContainerNext).toHaveClass(`person nextSlide`);
+      expect(reviewContainerNext).toHaveClass(`review review--next-slide`);
 
       act(() => {
         jest.advanceTimersByTime(3000);
       });
 
       expect(reviewContainerCurrent).toBeInTheDocument();
-      expect(reviewContainerCurrent).toHaveClass(`person lastSlide`);
+      expect(reviewContainerCurrent).toHaveClass(`review review--last-slide`);
 
       expect(reviewContainerNext).toBeInTheDocument();
-      expect(reviewContainerNext).toHaveClass(`person activeSlide`);
+      expect(reviewContainerNext).toHaveClass(`review review--active-slide`);
 
       jest.useRealTimers();
     });

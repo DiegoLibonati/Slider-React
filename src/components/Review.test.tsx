@@ -50,7 +50,7 @@ describe("Review.tsx", () => {
       const quote = screen.getByText(props.quote);
 
       expect(article).toBeInTheDocument();
-      expect(article).toHaveClass(`person ${props.className}`);
+      expect(article).toHaveClass(`review ${props.className}`);
       expect(img).toBeInTheDocument();
       expect(img).toHaveAttribute("src", props.image);
       expect(img).toHaveAttribute("alt", props.name);

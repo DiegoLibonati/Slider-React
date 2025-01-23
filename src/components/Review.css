@@ -1,0 +1,96 @@
+.review {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-flow: column wrap;
+  position: absolute;
+  width: 25rem;
+  height: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
+}
+
+.review__img {
+  border-radius: 50%;
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+
+.review__name {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.review__title {
+  font-size: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.review__quote {
+  font-size: 1.2rem;
+}
+
+.review--active-slide {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: transform 1s, opacity 1s;
+}
+
+.review--next-slide {
+  transform: translateX(100%);
+}
+
+.review--last-slide {
+  transform: translateX(-100%);
+}
+
+@media only screen and (min-width: 540px) {
+  .review {
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .review__name {
+    font-size: 2.5rem;
+  }
+
+  .review__title {
+    font-size: 2rem;
+  }
+
+  .review__quote {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .review {
+    width: 60rem;
+    justify-content: space-between;
+  }
+
+  .review__name {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .review__title {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+
+  .review__quote {
+    font-size: 2rem;
+    margin: 0;
+  }
+}
