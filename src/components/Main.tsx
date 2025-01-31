@@ -41,7 +41,7 @@ export const Main = (): JSX.Element => {
     <main className="main-app">
       <section className="header-app">
         <article className="header-app__content">
-          <h2 className="header-app__content-title">Reviews</h2>
+          <h2 className="header-app__title">Reviews</h2>
         </article>
       </section>
 
