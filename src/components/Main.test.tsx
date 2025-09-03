@@ -5,7 +5,7 @@ import { act } from "react";
 
 import { Main } from "./Main";
 
-import { mockPeople } from "../tests/jest.constants";
+import { mockPeople } from "../../tests/jest.constants";
 
 type RenderComponent = {
   container: HTMLElement;

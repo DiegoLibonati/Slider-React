@@ -3,9 +3,9 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 import { Person } from "../entities/entities";
 
-import { Review } from "./Review.tsx";
+import { Review } from "./Review";
 
-import { people } from "../constants/data.ts";
+import { people } from "../constants/data";
 
 export const Main = (): JSX.Element => {
   const [person] = useState<Person[]>(people);
