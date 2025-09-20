@@ -1,6 +1,6 @@
 import { screen, render } from "@testing-library/react";
 
-import { Review } from "./Review";
+import { Review } from "@src/components/Review";
 
 type RenderComponent = {
   props: {

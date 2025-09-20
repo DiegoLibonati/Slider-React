@@ -1,4 +1,4 @@
-import "./Review.css";
+import "@src/components/Review.css";
 
 interface ReviewProps {
   image: string;

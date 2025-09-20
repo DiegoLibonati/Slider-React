@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-import { Person } from "../entities/entities";
+import { Person } from "@src/entities/entities";
 
-import { Review } from "./Review";
+import { Review } from "@src/components/Review";
 
-import { people } from "../constants/data";
+import { people } from "@src/constants/data";
 
 export const Main = (): JSX.Element => {
   const [person] = useState<Person[]>(people);
