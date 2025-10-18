@@ -1,9 +1,7 @@
-import { Main } from "@src/components/Main";
-
-import "@src/App.css";
+import { SliderPage } from "@src/pages/SliderPage/SliderPage";
 
 function App(): JSX.Element {
-  return <Main></Main>;
+  return <SliderPage></SliderPage>;
 }
 
 export default App;

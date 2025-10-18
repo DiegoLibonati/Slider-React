@@ -1,4 +1,3 @@
-// ##### TYPES #####
 export type Person = {
   id: number;
   image: string;

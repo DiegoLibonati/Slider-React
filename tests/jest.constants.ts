@@ -1,4 +1,4 @@
-import { Person } from "@src/entities/entities";
+import { Person } from "@src/entities/app";
 
 export const mockPeople: Person[] = [
   {

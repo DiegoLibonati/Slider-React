@@ -1,12 +1,6 @@
-import "@src/components/Review.css";
+import { ReviewProps } from "@src/entities/props";
 
-interface ReviewProps {
-  image: string;
-  name: string;
-  title: string;
-  quote: string;
-  className?: string;
-}
+import "@src/components/Review/Review.css";
 
 export const Review = ({
   image,

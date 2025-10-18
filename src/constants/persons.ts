@@ -1,6 +1,6 @@
-import { Person } from "@src/entities/entities";
+import { Person } from "@src/entities/app";
 
-export const people: Person[] = [
+const persons: Person[] = [
   {
     id: 1,
     image:
@@ -38,3 +38,5 @@ export const people: Person[] = [
       "Marfa af yr 3 wolf moon kogi, readymade distillery asymmetrical seitan kale chips fingerstache cloud bread mustache twee messenger bag. ",
   },
 ];
+
+export default persons;

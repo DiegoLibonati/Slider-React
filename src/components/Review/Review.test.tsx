@@ -1,15 +1,11 @@
 import { screen, render } from "@testing-library/react";
 
-import { Review } from "@src/components/Review";
+import { ReviewProps } from "@src/entities/props";
+
+import { Review } from "@src/components/Review/Review";
 
 type RenderComponent = {
-  props: {
-    image: string;
-    name: string;
-    title: string;
-    quote: string;
-    className?: string;
-  };
+  props: ReviewProps;
   container: HTMLElement;
 };
 

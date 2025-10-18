@@ -3,7 +3,7 @@ import user from "@testing-library/user-event";
 
 import { act } from "react";
 
-import { Main } from "@src/components/Main";
+import { SliderPage } from "@src/pages/SliderPage/SliderPage";
 
 import { mockPeople } from "@tests/jest.constants";
 
@@ -12,20 +12,19 @@ type RenderComponent = {
 };
 
 const renderComponent = (): RenderComponent => {
-  const { container } = render(<Main />);
+  const { container } = render(<SliderPage />);
 
   return {
     container: container,
   };
 };
 
-jest.mock("../constants/data.ts", () => ({
-  get people() {
-    return mockPeople;
-  },
-}));
+jest.mock("@src/constants/persons", () => {
+  const { mockPeople } = jest.requireActual("@tests/jest.constants");
+  return { __esModule: true, default: mockPeople };
+});
 
-describe("Main.tsx", () => {
+describe("SliderPage.tsx", () => {
   describe("General Tests.", () => {
     test("It must render the title of the APP, the left and right buttons. In addition to the current Review with its respective class.", () => {
       renderComponent();

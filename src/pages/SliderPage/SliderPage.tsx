@@ -1,14 +1,16 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-import { Person } from "@src/entities/entities";
+import { Person } from "@src/entities/app";
 
-import { Review } from "@src/components/Review";
+import { Review } from "@src/components/Review/Review";
 
-import { people } from "@src/constants/data";
+import persons from "@src/constants/persons";
 
-export const Main = (): JSX.Element => {
-  const [person] = useState<Person[]>(people);
+import "@src/pages/SliderPage/SliderPage.css";
+
+export const SliderPage = () => {
+  const [person] = useState<Person[]>(persons);
   const [index, setIndex] = useState<number>(0);
 
   const handlePrevBtn: React.MouseEventHandler<HTMLButtonElement> = () => {
