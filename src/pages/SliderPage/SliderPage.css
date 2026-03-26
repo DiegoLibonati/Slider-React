@@ -38,7 +38,7 @@
   background: none;
   padding: 0.5rem;
   border-radius: 1rem;
-  background-color: var(--primary-color);
+  background-color: var(--color-primary);
   position: relative;
   z-index: 500;
   cursor: pointer;
@@ -47,7 +47,7 @@
 .reviews__btn-prev-icon,
 .reviews__btn-next-icon {
   font-size: 3rem;
-  color: var(--white-color);
+  color: var(--color-white);
 }
 
 @media only screen and (min-width: 768px) {

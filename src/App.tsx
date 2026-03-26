@@ -1,6 +1,6 @@
-import { SliderPage } from "@src/pages/SliderPage/SliderPage";
+import { SliderPage } from "@/pages/SliderPage/SliderPage";
 
-function App(): JSX.Element {
+function App() {
   return <SliderPage></SliderPage>;
 }
 

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-import { Person } from "@src/entities/app";
+import { Person } from "@/types/app";
 
-import { Review } from "@src/components/Review/Review";
+import Review from "@/components/Review/Review";
 
-import persons from "@src/constants/persons";
+import persons from "@/constants/persons";
 
-import "@src/pages/SliderPage/SliderPage.css";
+import "@/pages/SliderPage/SliderPage.css";
 
 export const SliderPage = () => {
   const [person] = useState<Person[]>(persons);
@@ -53,10 +53,7 @@ export const SliderPage = () => {
           aria-label="prev review"
           className="reviews__btn-prev"
         >
-          <BsChevronLeft
-            id="btn"
-            className="reviews__btn-prev-icon"
-          ></BsChevronLeft>
+          <BsChevronLeft id="btn" className="reviews__btn-prev-icon"></BsChevronLeft>
         </button>
 
         {person.map((p, pIndex) => {
@@ -66,10 +63,7 @@ export const SliderPage = () => {
             position = "review--active-slide";
           }
 
-          if (
-            pIndex === index - 1 ||
-            (index === 0 && pIndex === person.length - 1)
-          ) {
+          if (pIndex === index - 1 || (index === 0 && pIndex === person.length - 1)) {
             position = "review--last-slide";
           }
 
@@ -90,10 +84,7 @@ export const SliderPage = () => {
           aria-label="next review"
           className="reviews__btn-next"
         >
-          <BsChevronRight
-            id="btn"
-            className="reviews__btn-next-icon"
-          ></BsChevronRight>
+          <BsChevronRight id="btn" className="reviews__btn-next-icon"></BsChevronRight>
         </button>
       </section>
     </main>

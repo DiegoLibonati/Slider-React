@@ -1,14 +1,8 @@
-import { ReviewProps } from "@src/entities/props";
+import { ReviewProps } from "@/types/props";
 
-import "@src/components/Review/Review.css";
+import "@/components/Review/Review.css";
 
-export const Review = ({
-  image,
-  name,
-  title,
-  quote,
-  className,
-}: ReviewProps): JSX.Element => {
+const Review = ({ image, name, title, quote, className }: ReviewProps) => {
   return (
     <article className={`review ${className}`}>
       <img src={image} alt={name} className="review__img"></img>
@@ -19,3 +13,5 @@ export const Review = ({
     </article>
   );
 };
+
+export default Review;
