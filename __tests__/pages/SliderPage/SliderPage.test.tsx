@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import userEvent from "@testing-library/user-event";
 
-import { SliderPage } from "@/pages/SliderPage/SliderPage";
+import SliderPage from "@/pages/SliderPage/SliderPage";
 
 type RenderPage = {
   container: HTMLElement;

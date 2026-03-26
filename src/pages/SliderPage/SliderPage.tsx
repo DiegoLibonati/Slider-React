@@ -9,7 +9,7 @@ import persons from "@/constants/persons";
 
 import "@/pages/SliderPage/SliderPage.css";
 
-export const SliderPage = () => {
+const SliderPage = () => {
   const [person] = useState<Person[]>(persons);
   const [index, setIndex] = useState<number>(0);
 
@@ -96,3 +96,5 @@ export const SliderPage = () => {
     </main>
   );
 };
+
+export default SliderPage;
