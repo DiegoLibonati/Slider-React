@@ -15,7 +15,7 @@
 }
 
 .header-app__title {
-  font-size: 5rem;
+  font-size: 3.125rem;
 }
 
 .reviews {
@@ -36,8 +36,8 @@
   justify-content: center;
   border: none;
   background: none;
-  padding: 0.5rem;
-  border-radius: 1rem;
+  padding: 0.3125rem;
+  border-radius: 0.625rem;
   background-color: var(--color-primary);
   position: relative;
   z-index: 500;
@@ -46,18 +46,18 @@
 
 .reviews__btn-prev-icon,
 .reviews__btn-next-icon {
-  font-size: 3rem;
+  font-size: 1.875rem;
   color: var(--color-white);
 }
 
 @media only screen and (min-width: 768px) {
   .reviews {
-    width: 70rem;
+    width: 43.75rem;
   }
 }
 
 @media only screen and (min-width: 1024px) {
   .reviews {
-    width: 80rem;
+    width: 50rem;
   }
 }

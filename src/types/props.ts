@@ -8,4 +8,5 @@ export interface ReviewProps extends DefaultProps {
   name: string;
   title: string;
   quote: string;
+  isActive?: boolean;
 }

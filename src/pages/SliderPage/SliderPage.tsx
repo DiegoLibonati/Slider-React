@@ -40,20 +40,25 @@ export const SliderPage = () => {
   }, [index]);
 
   return (
-    <main className="main-app">
-      <section className="header-app">
+    <main className="main-app" aria-label="Reviews slider">
+      <section className="header-app" aria-hidden="true">
         <article className="header-app__content">
           <h2 className="header-app__title">Reviews</h2>
         </article>
       </section>
 
-      <section className="reviews">
+      <section
+        className="reviews"
+        aria-label="Reviews carousel"
+        aria-roledescription="carousel"
+        role="region"
+      >
         <button
           onClick={(e) => handlePrevBtn(e)}
-          aria-label="prev review"
+          aria-label="Previous review"
           className="reviews__btn-prev"
         >
-          <BsChevronLeft id="btn" className="reviews__btn-prev-icon"></BsChevronLeft>
+          <BsChevronLeft aria-hidden="true" className="reviews__btn-prev-icon" />
         </button>
 
         {person.map((p, pIndex) => {
@@ -72,19 +77,20 @@ export const SliderPage = () => {
               key={p.id}
               className={position}
               image={p.image}
+              isActive={pIndex === index}
               name={p.name}
               quote={p.quote}
               title={p.title}
-            ></Review>
+            />
           );
         })}
 
         <button
           onClick={(e) => handleNextBtn(e)}
-          aria-label="next review"
+          aria-label="Next review"
           className="reviews__btn-next"
         >
-          <BsChevronRight id="btn" className="reviews__btn-next-icon"></BsChevronRight>
+          <BsChevronRight aria-hidden="true" className="reviews__btn-next-icon" />
         </button>
       </section>
     </main>

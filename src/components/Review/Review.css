@@ -4,45 +4,49 @@
   justify-content: flex-start;
   flex-flow: column wrap;
   position: absolute;
-  width: 25rem;
-  height: 50rem;
+  width: 15.625rem;
+  height: 31.25rem;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   text-align: center;
-  padding: 1rem;
+  padding: 0.625rem;
   opacity: 0;
-  transition: transform 1s, opacity 1s;
+  transition:
+    transform 1s,
+    opacity 1s;
 }
 
 .review__img {
   border-radius: 50%;
-  width: 20rem;
-  height: 20rem;
+  width: 12.5rem;
+  height: 12.5rem;
   object-fit: cover;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .review__name {
-  font-size: 2rem;
-  letter-spacing: 0.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  letter-spacing: 0.125rem;
+  margin-bottom: 0.625rem;
 }
 
 .review__title {
-  font-size: 1.5rem;
-  margin-bottom: 5rem;
+  font-size: 0.9375rem;
+  margin-bottom: 3.125rem;
 }
 
 .review__quote {
-  font-size: 1.2rem;
+  font-size: 0.75rem;
 }
 
 .review--active-slide {
   opacity: 1;
   transform: translateX(0%);
-  transition: transform 1s, opacity 1s;
+  transition:
+    transform 1s,
+    opacity 1s;
 }
 
 .review--next-slide {
@@ -61,36 +65,36 @@
 
 @media only screen and (min-width: 768px) {
   .review__name {
-    font-size: 2.5rem;
+    font-size: 1.5625rem;
   }
 
   .review__title {
-    font-size: 2rem;
+    font-size: 1.25rem;
   }
 
   .review__quote {
-    font-size: 1.5rem;
+    font-size: 0.9375rem;
   }
 }
 
 @media only screen and (min-width: 1024px) {
   .review {
-    width: 60rem;
+    width: 37.5rem;
     justify-content: space-between;
   }
 
   .review__name {
-    font-size: 3rem;
+    font-size: 1.875rem;
     margin: 0;
   }
 
   .review__title {
-    font-size: 2.5rem;
+    font-size: 1.5625rem;
     margin: 0;
   }
 
   .review__quote {
-    font-size: 2rem;
+    font-size: 1.25rem;
     margin: 0;
   }
 }
