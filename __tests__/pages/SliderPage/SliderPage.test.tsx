@@ -13,6 +13,10 @@ const renderPage = (): RenderPage => {
 };
 
 describe("SliderPage", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render the main landmark with the correct aria-label", () => {
     renderPage();
     expect(screen.getByRole("main", { name: "Reviews slider" })).toBeInTheDocument();

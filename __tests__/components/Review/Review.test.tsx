@@ -27,6 +27,10 @@ const renderComponent = (overrides?: Partial<ReviewProps>): RenderComponent => {
 };
 
 describe("Review", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render an article with role='group'", () => {
     renderComponent();
     expect(screen.getByRole("group")).toBeInTheDocument();
