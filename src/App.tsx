@@ -1,6 +1,8 @@
+import type { JSX } from "react";
+
 import SliderPage from "@/pages/SliderPage/SliderPage";
 
-function App() {
+function App(): JSX.Element {
   return <SliderPage></SliderPage>;
 }
 

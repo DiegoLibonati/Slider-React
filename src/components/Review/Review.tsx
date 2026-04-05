@@ -1,8 +1,9 @@
-import { ReviewProps } from "@/types/props";
+import type { JSX } from "react";
+import type { ReviewProps } from "@/types/props";
 
 import "@/components/Review/Review.css";
 
-const Review = ({ image, name, title, quote, className, isActive }: ReviewProps) => {
+const Review = ({ image, name, title, quote, className, isActive }: ReviewProps): JSX.Element => {
   return (
     <article
       className={`review ${className}`}

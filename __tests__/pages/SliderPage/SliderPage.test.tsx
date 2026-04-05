@@ -3,9 +3,9 @@ import userEvent from "@testing-library/user-event";
 
 import SliderPage from "@/pages/SliderPage/SliderPage";
 
-type RenderPage = {
+interface RenderPage {
   container: HTMLElement;
-};
+}
 
 const renderPage = (): RenderPage => {
   const { container } = render(<SliderPage />);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-import { Person } from "@/types/app";
+import type { JSX } from "react";
 
 import Review from "@/components/Review/Review";
 
@@ -9,9 +9,9 @@ import persons from "@/constants/persons";
 
 import "@/pages/SliderPage/SliderPage.css";
 
-const SliderPage = () => {
-  const [person] = useState<Person[]>(persons);
-  const [index, setIndex] = useState<number>(0);
+const SliderPage = (): JSX.Element => {
+  const [person] = useState(persons);
+  const [index, setIndex] = useState(0);
 
   const handlePrevBtn: React.MouseEventHandler<HTMLButtonElement> = () => {
     setIndex(index - 1);
@@ -36,7 +36,9 @@ const SliderPage = () => {
       setIndex(index + 1);
     }, 3000);
 
-    return () => clearInterval(interval);
+    return (): void => {
+      clearInterval(interval);
+    };
   }, [index]);
 
   return (
@@ -54,7 +56,9 @@ const SliderPage = () => {
         role="region"
       >
         <button
-          onClick={(e) => handlePrevBtn(e)}
+          onClick={(e) => {
+            handlePrevBtn(e);
+          }}
           aria-label="Previous review"
           className="reviews__btn-prev"
         >
@@ -86,7 +90,9 @@ const SliderPage = () => {
         })}
 
         <button
-          onClick={(e) => handleNextBtn(e)}
+          onClick={(e) => {
+            handleNextBtn(e);
+          }}
           aria-label="Next review"
           className="reviews__btn-next"
         >

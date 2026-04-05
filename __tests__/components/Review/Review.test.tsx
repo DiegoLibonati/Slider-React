@@ -6,10 +6,10 @@ import Review from "@/components/Review/Review";
 
 import { mockPerson } from "@tests/__mocks__/persons.mock";
 
-type RenderComponent = {
+interface RenderComponent {
   container: HTMLElement;
   props: ReviewProps;
-};
+}
 
 const renderComponent = (overrides?: Partial<ReviewProps>): RenderComponent => {
   const props: ReviewProps = {
