@@ -1,4 +1,4 @@
-import { Person } from "@/types/app";
+import type { Person } from "@/types/app";
 
 export const mockPersons: Person[] = [
   { id: 1, image: "img-1.jpg", name: "maria ferguson", title: "office manager", quote: "Quote 1" },
