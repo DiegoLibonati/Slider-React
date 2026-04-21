@@ -7,9 +7,9 @@ import Review from "@/components/Review/Review";
 
 import persons from "@/constants/persons";
 
-import "@/pages/SliderPage/SliderPage.css";
+import "@/pages/QuotefloPage/QuotefloPage.css";
 
-const SliderPage = (): JSX.Element => {
+const QuotefloPage = (): JSX.Element => {
   const [person] = useState(persons);
   const [index, setIndex] = useState(0);
 
@@ -103,4 +103,4 @@ const SliderPage = (): JSX.Element => {
   );
 };
 
-export default SliderPage;
+export default QuotefloPage;

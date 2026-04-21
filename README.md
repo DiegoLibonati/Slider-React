@@ -1,4 +1,4 @@
-# Slider React
+# Quoteflo
 
 ## Educational Purpose
 
@@ -17,7 +17,15 @@ The application will open automatically at `http://localhost:3000`
 
 ## Description
 
-I made a web application that simulates or tries to reproduce a section of Reviews in the form of Slider where each review will show a photo, a name, a role and a description. It will also have an automatic slide in case the user does not use the buttons, and a manual slide in case the user wants to use the next or prev buttons.
+**Quoteflo** is a reviews carousel component built with React 19 and TypeScript. It displays a collection of user testimonials in a visually engaging slider, where each card shows a profile photo, the reviewer's name, their role or title, and a personal quote.
+
+The carousel supports two navigation modes that work together seamlessly. In automatic mode, the slider advances to the next review every 3 seconds without any user interaction, making it ideal for displaying testimonials on landing pages or portfolio sections where the content should speak for itself. In manual mode, the user can click the previous or next arrow buttons at any time to move freely through the reviews at their own pace. Both modes coexist: clicking a button resets the auto-advance timer, so the automatic navigation always resumes from wherever the user left off.
+
+Navigation is circular — moving past the last review wraps back to the first, and going before the first wraps to the last, so the carousel loops indefinitely without dead ends.
+
+Each review card is animated using CSS classes that track whether the card is the currently active slide, the one that just left (last slide), or one waiting ahead (next slide). This gives the transition a sense of direction and depth without relying on any animation library.
+
+The component is fully accessible: the carousel region has the appropriate ARIA role and description, each review card exposes its visibility state via `aria-hidden`, and all interactive controls have descriptive `aria-label` attributes so screen readers can navigate the component meaningfully.
 
 ## Technologies used
 
@@ -68,11 +76,7 @@ I made a web application that simulates or tries to reproduce a section of Revie
 
 ## Portfolio Link
 
-[`https://www.diegolibonati.com.ar/#/project/Slider-React`](https://www.diegolibonati.com.ar/#/project/Slider-React)
-
-## Video
-
-https://user-images.githubusercontent.com/99032604/199142956-0476af19-ec83-4a43-8621-aa69df8e65cf.mp4
+[`https://www.diegolibonati.com.ar/#/project/quoteflo`](https://www.diegolibonati.com.ar/#/project/quoteflo)
 
 ## Testing
 

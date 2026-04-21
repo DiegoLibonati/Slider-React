@@ -1,78 +1,83 @@
 import { render, screen } from "@testing-library/react";
 
+import type { RenderResult } from "@testing-library/react";
 import type { ReviewProps } from "@/types/props";
 
 import Review from "@/components/Review/Review";
 
-import { mockPerson } from "@tests/__mocks__/persons.mock";
-
-interface RenderComponent {
-  container: HTMLElement;
-  props: ReviewProps;
-}
-
-const renderComponent = (overrides?: Partial<ReviewProps>): RenderComponent => {
-  const props: ReviewProps = {
-    image: mockPerson.image,
-    name: mockPerson.name,
-    title: mockPerson.title,
-    quote: mockPerson.quote,
+const renderComponent = (props: Partial<ReviewProps> = {}): RenderResult => {
+  const defaultProps: ReviewProps = {
+    image: "test-image.jpg",
+    name: "John Doe",
+    title: "Software Engineer",
+    quote: "A great quote here",
     className: "review--active-slide",
     isActive: true,
-    ...overrides,
+    ...props,
   };
-
-  const { container } = render(<Review {...props} />);
-  return { container, props };
+  return render(<Review {...defaultProps} />);
 };
 
 describe("Review", () => {
-  afterEach(() => {
-    jest.clearAllMocks();
+  describe("rendering", () => {
+    it("should render with the provided name", () => {
+      renderComponent({ name: "Jane Smith" });
+      expect(screen.getByText("Jane Smith")).toBeInTheDocument();
+    });
+
+    it("should render with the provided title", () => {
+      renderComponent({ title: "Product Manager" });
+      expect(screen.getByText("Product Manager")).toBeInTheDocument();
+    });
+
+    it("should render with the provided quote", () => {
+      renderComponent({ quote: "This is my quote" });
+      expect(screen.getByText("This is my quote")).toBeInTheDocument();
+    });
+
+    it("should render the image with the correct src and alt", () => {
+      renderComponent({ image: "avatar.jpg", name: "Alice" });
+      const img = screen.getByAltText("Photo of Alice");
+      expect(img).toHaveAttribute("src", "avatar.jpg");
+    });
+
+    it("should apply the review base class and the provided className", () => {
+      renderComponent({ className: "review--active-slide" });
+      const article = screen.getByRole("group", { hidden: true });
+      expect(article).toHaveClass("review");
+      expect(article).toHaveClass("review--active-slide");
+    });
+
+    it("should render the aria-label with the person's name", () => {
+      renderComponent({ name: "Bob" });
+      expect(
+        screen.getByRole("group", { name: "Review by Bob", hidden: true })
+      ).toBeInTheDocument();
+    });
   });
 
-  it("should render an article with role='group'", () => {
-    renderComponent();
-    expect(screen.getByRole("group")).toBeInTheDocument();
-  });
+  describe("accessibility", () => {
+    it("should set aria-hidden to false when isActive is true", () => {
+      renderComponent({ isActive: true });
+      expect(screen.getByRole("group", { hidden: true })).toHaveAttribute("aria-hidden", "false");
+    });
 
-  it("should render with aria-label containing the reviewer name", () => {
-    renderComponent();
-    expect(screen.getByRole("group")).toHaveAttribute("aria-label", `Review by ${mockPerson.name}`);
-  });
+    it("should set aria-hidden to true when isActive is false", () => {
+      renderComponent({ isActive: false });
+      expect(screen.getByRole("group", { hidden: true })).toHaveAttribute("aria-hidden", "true");
+    });
 
-  it("should apply the base review class and the provided className", () => {
-    renderComponent({ className: "review--next-slide" });
-    expect(screen.getByRole("group", { hidden: true })).toHaveClass("review", "review--next-slide");
-  });
-
-  it("should set aria-hidden to false when isActive is true", () => {
-    renderComponent({ isActive: true });
-    expect(screen.getByRole("group")).toHaveAttribute("aria-hidden", "false");
-  });
-
-  it("should set aria-hidden to true when isActive is false", () => {
-    renderComponent({ isActive: false });
-    expect(screen.getByRole("group", { hidden: true })).toHaveAttribute("aria-hidden", "true");
-  });
-
-  it("should render the reviewer image with accessible alt text", () => {
-    renderComponent();
-    expect(screen.getByRole("img")).toHaveAttribute("alt", `Photo of ${mockPerson.name}`);
-  });
-
-  it("should render the reviewer name as an h3 heading", () => {
-    renderComponent();
-    expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(mockPerson.name);
-  });
-
-  it("should render the reviewer title as an h4 heading", () => {
-    renderComponent();
-    expect(screen.getByRole("heading", { level: 4 })).toHaveTextContent(mockPerson.title);
-  });
-
-  it("should render the reviewer quote", () => {
-    renderComponent();
-    expect(screen.getByText(mockPerson.quote)).toBeInTheDocument();
+    it("should set aria-hidden to true when isActive is not provided", () => {
+      render(
+        <Review
+          image="test-image.jpg"
+          name="John Doe"
+          title="Software Engineer"
+          quote="A great quote here"
+          className="review--active-slide"
+        />
+      );
+      expect(screen.getByRole("group", { hidden: true })).toHaveAttribute("aria-hidden", "true");
+    });
   });
 });

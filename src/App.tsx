@@ -1,9 +1,9 @@
 import type { JSX } from "react";
 
-import SliderPage from "@/pages/SliderPage/SliderPage";
+import QuotefloPage from "@/pages/QuotefloPage/QuotefloPage";
 
 function App(): JSX.Element {
-  return <SliderPage></SliderPage>;
+  return <QuotefloPage></QuotefloPage>;
 }
 
 export default App;

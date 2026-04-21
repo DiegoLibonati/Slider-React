@@ -1,7 +1,7 @@
 {
-  "name": "Slider React",
-  "short_name": "Slider",
-  "description": "I made a web application that simulates or tries to reproduce a section of Reviews in the form of Slider where each review will show a photo, a name, a role and a description. It will also have an automatic slide in case the user does not use the buttons, and a manual slide in case the user wants to use the next or prev buttons.",
+  "name": "Quoteflo",
+  "short_name": "Quoteflo",
+  "description": "Quoteflo is a reviews carousel component built with React 19 and TypeScript. It displays a collection of user testimonials in a visually engaging slider, where each card shows a profile photo, the reviewer's name, their role or title, and a personal quote.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
