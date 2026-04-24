@@ -1,7 +1,7 @@
 {
   "name": "Quoteflo",
   "short_name": "Quoteflo",
-  "description": "Quoteflo is a reviews carousel component built with React 19 and TypeScript. It displays a collection of user testimonials in a visually engaging slider, where each card shows a profile photo, the reviewer's name, their role or title, and a personal quote.",
+  "description": "Quoteflo is a reviews carousel component built with React 19 and TypeScript.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
