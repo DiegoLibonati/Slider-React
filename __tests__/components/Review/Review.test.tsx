@@ -5,6 +5,17 @@ import type { ReviewProps } from "@/types/props";
 
 import Review from "@/components/Review/Review";
 
+const renderComponentWithoutIsActive = (): RenderResult =>
+  render(
+    <Review
+      image="test-image.jpg"
+      name="John Doe"
+      title="Software Engineer"
+      quote="A great quote here"
+      className="review--active-slide"
+    />
+  );
+
 const renderComponent = (props: Partial<ReviewProps> = {}): RenderResult => {
   const defaultProps: ReviewProps = {
     image: "test-image.jpg",
@@ -68,15 +79,7 @@ describe("Review", () => {
     });
 
     it("should set aria-hidden to true when isActive is not provided", () => {
-      render(
-        <Review
-          image="test-image.jpg"
-          name="John Doe"
-          title="Software Engineer"
-          quote="A great quote here"
-          className="review--active-slide"
-        />
-      );
+      renderComponentWithoutIsActive();
       expect(screen.getByRole("group", { hidden: true })).toHaveAttribute("aria-hidden", "true");
     });
   });
