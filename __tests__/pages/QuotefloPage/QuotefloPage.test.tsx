@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import type { RenderResult } from "@testing-library/react";
@@ -17,6 +17,14 @@ jest.mock("@/constants/persons", () => {
 });
 
 const renderPage = (): RenderResult => render(<QuotefloPage />);
+
+const getReviewByName = (name: string): HTMLElement => {
+  const review = screen
+    .getAllByRole("group", { hidden: true })
+    .find((el) => el.getAttribute("aria-label") === `Review by ${name}`);
+  if (!review) throw new Error(`Review by ${name} not found`);
+  return review;
+};
 
 describe("QuotefloPage", () => {
   beforeEach(() => {
@@ -60,11 +68,7 @@ describe("QuotefloPage", () => {
 
     it("should render other reviews as inactive by default", () => {
       renderPage();
-      const allReviews = screen.getAllByRole("group", { hidden: true });
-      const johnDoeReview = allReviews.find(
-        (el) => el.getAttribute("aria-label") === `Review by ${mockPersons[1]!.name}`
-      );
-      expect(johnDoeReview).toHaveAttribute("aria-hidden", "true");
+      expect(getReviewByName(mockPersons[1]!.name)).toHaveAttribute("aria-hidden", "true");
     });
   });
 
@@ -141,19 +145,19 @@ describe("QuotefloPage", () => {
       });
     });
 
-    it("should auto-advance to the next review after 3 seconds", async () => {
+    it("should auto-advance to the next review after 3 seconds", () => {
       renderPage();
-      await waitFor(
-        () => {
-          expect(
-            screen.getByRole("group", {
-              name: `Review by ${mockPersons[1]!.name}`,
-              hidden: true,
-            })
-          ).toHaveAttribute("aria-hidden", "false");
-        },
-        { timeout: 4000 }
-      );
+
+      act(() => {
+        jest.advanceTimersByTime(3000);
+      });
+
+      expect(
+        screen.getByRole("group", {
+          name: `Review by ${mockPersons[1]!.name}`,
+          hidden: true,
+        })
+      ).toHaveAttribute("aria-hidden", "false");
     });
 
     it("should apply the active-slide class to the current review", () => {
@@ -173,11 +177,7 @@ describe("QuotefloPage", () => {
 
       await user.click(screen.getByRole("button", { name: "Next review" }));
 
-      const allReviews = screen.getAllByRole("group", { hidden: true });
-      const mariaReview = allReviews.find(
-        (el) => el.getAttribute("aria-label") === `Review by ${mockPersons[0]!.name}`
-      );
-      expect(mariaReview).toHaveClass("review--last-slide");
+      expect(getReviewByName(mockPersons[0]!.name)).toHaveClass("review--last-slide");
     });
   });
 });
