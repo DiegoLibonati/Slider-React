@@ -6,15 +6,6 @@ This project was created primarily for **educational and learning purposes**.
 While it is well-structured and could technically be used in production, it is **not intended for commercialization**.  
 The main goal is to explore and demonstrate best practices, patterns, and technologies in software development.
 
-## Getting Started
-
-1. Clone the repository
-2. Navigate to the project folder
-3. Execute: `npm install`
-4. Execute: `npm run dev`
-
-The application will open automatically at `http://localhost:3000`
-
 ## Description
 
 **Quoteflo** is a reviews carousel component built with React 19 and TypeScript. It displays a collection of user testimonials in a visually engaging slider, where each card shows a profile photo, the reviewer's name, their role or title, and a personal quote.
@@ -75,11 +66,20 @@ The component is fully accessible: the carousel region has the appropriate ARIA 
 "vite": "^7.1.6"
 ```
 
-## Portfolio Link
+## Getting Started
 
-[`https://www.diegolibonati.com.ar/#/project/quoteflo`](https://www.diegolibonati.com.ar/#/project/quoteflo)
+With the technology stack and dependencies in mind, follow these steps to run Quoteflo locally:
+
+1. Clone the repository
+2. Navigate to the project folder
+3. Execute: `npm install`
+4. Execute: `npm run dev`
+
+The application will open automatically at `http://localhost:3000`.
 
 ## Testing
+
+Once the app runs locally, you can validate behavior through the test suite.
 
 1. Navigate to the project folder
 2. Execute: `npm test`
@@ -90,7 +90,9 @@ For coverage report:
 npm run test:coverage
 ```
 
-## Security
+## Security Audit
+
+After validating the test suite, audit dependencies and overall project health before considering the code release-ready.
 
 ### npm audit
 
@@ -117,3 +119,7 @@ npm run doctor -- --verbose
 ## Known Issues
 
 None at the moment.
+
+## Portfolio Link
+
+[`https://www.diegolibonati.com.ar/#/project/quoteflo`](https://www.diegolibonati.com.ar/#/project/quoteflo)
