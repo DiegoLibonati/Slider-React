@@ -92,6 +92,57 @@ For coverage report:
 npm run test:coverage
 ```
 
+## Continuous Integration
+
+The repository ships with a **GitHub Actions** pipeline defined in [`.github/workflows/ci.yml`](.github/workflows/ci.yml). It runs automatically on every `push` and `pull_request` targeting the `main` branch.
+
+### Pipeline overview
+
+```
+            ┌─── PR or push to main ───┐
+            ▼                          ▼
+┌──────────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+│   lint-and-audit     │─▶│      testing     │─▶│      build       │
+│ eslint · tsc --noEmit│  │  jest (jsdom)    │  │   vite build     │
+└──────────────────────┘  └──────────────────┘  └──────────────────┘
+```
+
+All three jobs run on `ubuntu-latest`, use the Node version pinned in [`.nvmrc`](.nvmrc), and reuse npm's cache between runs via `actions/setup-node@v4`. Each job installs dependencies with `npm ci` to guarantee a reproducible install from `package-lock.json`.
+
+### Validation jobs
+
+1. **`lint-and-audit`** — runs `npm run lint` (ESLint on `src/`) and `npm run type-check` (`tsc --noEmit`). Catches style violations, dead code flagged by `noUnusedLocals` / `noUnusedParameters`, and type errors before any test or build effort is wasted.
+2. **`testing`** — depends on `lint-and-audit`. Runs the full Jest suite with `npm run test` against the `jest-environment-jsdom` environment configured in [`jest.config.cjs`](jest.config.cjs). The suite enforces a **70% coverage threshold** for branches, functions, lines, and statements (see `coverageThreshold` in the config).
+3. **`build`** — depends on `testing`. Runs `npm run build`, which performs a TypeScript compile (`tsc`) followed by `vite build` to produce the production bundle under `dist/`. Acts as a smoke test that the project bundles cleanly from a fresh checkout.
+
+Jobs are chained with `needs:`, so a lint failure short-circuits the pipeline before Jest and Vite ever run.
+
+### Running the same checks locally
+
+```bash
+# lint-and-audit
+npm run lint
+npm run type-check
+
+# testing
+npm test
+# (with coverage, matching the CI threshold)
+npm run test:coverage
+
+# build
+npm run build
+```
+
+### Where the pipeline output lives
+
+| Output                                           | Location                                                    |
+| ------------------------------------------------ | ----------------------------------------------------------- |
+| Validation logs (lint, type-check, tests, build) | **Actions** tab on GitHub                                   |
+| Coverage HTML report (local only)                | `./coverage/index.html` after `npm run test:coverage`       |
+| Production bundle (local only)                   | `./dist` after `npm run build`, served by `npm run preview` |
+
+> **Note:** this repository does not publish release artifacts from CI. The build job runs purely as a verification step; the `dist/` output is ephemeral and lives only inside the GitHub-hosted runner.
+
 ## Security Audit
 
 After validating the test suite, audit dependencies and overall project health before considering the code release-ready.
@@ -117,16 +168,6 @@ Use `--verbose` to see specific files and line numbers:
 ```bash
 npm run doctor -- --verbose
 ```
-
-## Continuous Integration
-
-Every push and pull request to `main` runs the GitHub Actions CI pipeline:
-
-1. **Lint & Audit** — ESLint + TypeScript type check (`npm run lint && npm run type-check`)
-2. **Testing** — full Jest test suite (`npm test`)
-3. **Build** — production bundle via Vite (`npm run build`)
-
-Each job depends on the previous one, so a lint failure stops the pipeline before tests or build run.
 
 ## Known Issues
 
