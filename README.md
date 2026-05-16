@@ -70,6 +70,8 @@ The component is fully accessible: the carousel region has the appropriate ARIA 
 
 With the technology stack and dependencies in mind, follow these steps to run Quoteflo locally:
 
+> **Node version:** this project requires Node.js 22 (see `.nvmrc`). Use `nvm use` to switch automatically.
+
 1. Clone the repository
 2. Navigate to the project folder
 3. Execute: `npm install`
@@ -115,6 +117,16 @@ Use `--verbose` to see specific files and line numbers:
 ```bash
 npm run doctor -- --verbose
 ```
+
+## Continuous Integration
+
+Every push and pull request to `main` runs the GitHub Actions CI pipeline:
+
+1. **Lint & Audit** — ESLint + TypeScript type check (`npm run lint && npm run type-check`)
+2. **Testing** — full Jest test suite (`npm test`)
+3. **Build** — production bundle via Vite (`npm run build`)
+
+Each job depends on the previous one, so a lint failure stops the pipeline before tests or build run.
 
 ## Known Issues
 
